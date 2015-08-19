@@ -1,2 +1,3 @@
 # trendyol.github.io
-Home page for Trendyol open source projects
+
+This repository contains the source of the [http://trendyol.github.io/]
