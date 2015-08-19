@@ -18,6 +18,10 @@ body {
     text-align: center !important;
 }
 
+.txr{
+    text-align: right !important;
+}
+
 .fcw{
     color: #FFF !important;
 }
@@ -92,15 +96,15 @@ body {
 
 ul{
     padding: 0px;
-    font-size: 15px;
 }
 
 li {
     list-style: none;
-    padding-top: 10px;
 }
 
 .col-md-12.p0.mt10{
+    border: 1px solid #eee;
+    margin-bottom: 20px;
     transition-property: all;
     -moz-transition-property: all;
     -webkit-transition-property: all;
@@ -120,7 +124,7 @@ li {
     -webkit-transition-duration: 0.2s;
     transition-timing-function: linear;
     -webkit-transition-timing-function: linear;
-    border: solid orange 4px;
+    border: 1px solid orange;
 }
 
 span.productLink {
@@ -152,8 +156,8 @@ span.productLink {
     border-right: 1px solid #eee;
 }
 
-.col-md-12.p0.mt10:hover span.productLink{
-    background-color: orange;
+.col-md-12.p0.mt10:hover .projectFooter{
+    background-color: #f68428;
     transition-property: all;
     -moz-transition-property: all;
     -webkit-transition-property: all;
@@ -164,8 +168,8 @@ span.productLink {
     -webkit-transition-timing-function: linear;
 }
 
-.col-md-12.p0.mt10:hover span.productLink:after{
-    content: ' Click';
+.col-md-12.p0.mt10:hover .createDate-span-effect:after{
+    content: 'Click';
 }
 
 .logo-mt{
@@ -184,5 +188,65 @@ span.welcome-messange {
 }
 
 ul.section-menu {
-    margin-left: 10px;
+
+}
+
+span.productDescription {
+    font-size: 11px;
+}
+
+span.productTitle {
+    font-size: 15px;
+}
+
+.projectFooter {
+    height: 25px;
+    font-size: 12px;
+    background-color: #000;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    line-height: 25px;
+    color: #FFF;
+}
+
+.project-padding{
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.project-info{
+    margin-top: 10px;
+}
+.project-info span{
+    display: block;
+    font-size: 11px;
+}
+
+.project-info-span span{
+    display: inline-block !important;
+    color: rgb(231, 125, 40);
+}
+
+span.menu-section-title {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.featured-projects li{
+     margin-top: 10px;
+     font-size: 11px;
+     font-weight: bold;
+ }
+
+input[type=checkbox], input[type=radio] {
+
+    line-height: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+li.section-menu-item {
+    margin-top: 5px;
 }
