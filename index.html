@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Title</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="top-border"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1 top-header"></div>
+        <div class="col-md-1 ty-button tc">  Trendyol </div>
+        <div class="col-md-10 top-header"></div>
+    </div>
+
+    <div class="row logo-leader">
+        <div class="col-md-1"></div>
+        <div class="col-md-4 logo-mt p0">
+            <img class="logo-img" src="images/logo.png"/>
+        </div>
+        <div class="col-md-3 mt25">
+            <div  class="input-group" style="margin-left: -32px;">
+                <input type="text" class="form-control" placeholder="Arama" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p0">
+            <img class="github-logo" src="images/GitHub_Logo.png"/>
+            <span class="welcome-messange">Welcome Visitor</span>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 p0 mt25 menu">
+            <div class="menu-container">
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 p0 products-container">
+            <div class="col-md-8 p15">
+                <div class="product-container">
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-right-container">
+                    <div class="menu-right-container">
+                        <ul class="group-menu">
+                            <li class="group-menu-item">Menu 1
+                                <ul class="section-menu">
+                                    <li class="section-menu-item">Menu 1.1</li>
+                                    <li class="section-menu-item">Menu 1.2</li>
+                                    <li class="section-menu-item">Menu 1.3</li>
+
+                                </ul>
+                            </li>
+                            <hr>
+                            <li class="group-menu-item">Menu 2
+                                <ul class="section-menu">
+                                    <li class="section-menu-item">Menu 2.1</li>
+                                    <li class="section-menu-item">Menu 2.2</li>
+                                    <li class="section-menu-item">Menu 2.3</li>
+
+                                </ul>
+                            </li>
+                            <hr>
+                            <li class="group-menu-item">Menu 3
+                                <ul class="section-menu">
+                                    <li class="section-menu-item">Menu 3.1</li>
+                                    <li class="section-menu-item">Menu 3.2</li>
+                                    <li class="section-menu-item">Menu 3.3</li>
+
+                                </ul>
+                            </li>
+                            <hr>
+                            <li class="group-menu-item">Menu 4
+                                <ul class="section-menu">
+                                    <li class="section-menu-item">Menu 4.1</li>
+                                    <li class="section-menu-item">Menu 4.2</li>
+                                    <li class="section-menu-item">Menu 4.3</li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 footer">
+            <div class="col-md-4 tc ftr-group">
+                <ul>
+                    <li>footer 1</li>
+                    <li>footer 2</li>
+                    <li>footer 3</li>
+                </ul>
+            </div>
+            <div class="col-md-4 tc ftr-group">
+                <ul>
+                    <li>footer 1</li>
+                    <li>footer 2</li>
+                    <li>footer 3</li>
+                </ul>
+            </div>
+            <div class="col-md-4 tc ftr-group">
+                <div class="logo-mt">
+                    <img  class="logo-img" src="images/logo.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<script id="product-template" type="text/x-custom-template">
+    <div class="col-md-12 p0 mt10">
+        <img style="max-width: 100%" src="{{imgSrc}}"/>
+        <div class="product-black-bottom-border">
+            <span class="productDescription">{{productDesc}}</span>
+            <span class="productLink">{{productLink}}</span>
+        </div>
+    </div>
+</script>
+
+
+<script>
+    $(function() {
+        var container = $('.product-container');
+        var template = $('#product-template').html();
+        template = template.replace('{{imgSrc}}', 'http://img-trendyol.mncdn.com/Assets/ProductImages/100815/al%C4%B1sverisfestivali_170815x_new.jpg');
+        template = template.replace('{{productDesc}}', 'Product Description');
+        template = template.replace('{{productLink}}', 'Product Link');
+
+        for(var i = 0; i<10; i++)
+        {
+            $(container).append($(template));
+        }
+    });
+</script>
+
