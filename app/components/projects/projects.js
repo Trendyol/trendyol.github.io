@@ -1,35 +1,38 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
+import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor ,NgIf} from 'angular2/angular2';
 import { ObservableWrapper } from 'angular2/src/facade/async';
 import { GithubApi } from 'app/services/githubApi';
+import { Constants } from 'app/services/constants';
 import { Sorter } from 'app/utils/sorter';
 import { SortBy } from 'app/components/sortBy/sortBy';
 
 @Component({
     selector: 'projects',
-    hostInjector: [GithubApi]
+    hostInjector: [GithubApi, Constants]
 })
 @View({
     templateUrl: 'app/components/projects/projects.html',
-    directives: [NgFor, SortBy]
+    directives: [NgFor, SortBy, NgIf]
 })
 
 export class Projects {
 
-    constructor(githubApi:GithubApi) {
+    constructor(githubApi:GithubApi, constants:Constants) {
         this.title = 'Projects';
         this.filterText = 'Filter Projects:';
-        this.FEATURED_PROJECTS_SIZE = 4
+
+        this.defaultProjectImage = constants.DefaultProjectImage;
+
         this.projects = this.filteredProjects = this.languages = this.featuredProjects = [];
 
         //
         ObservableWrapper.subscribe(githubApi.getProjects(), res => {
 
             this.projects = this.filteredProjects = _.chain(res.json()).filter(item=> {
-                return item.name !== "trendyol.github.io" ? true : false;
+                return item.name !== constants.ProjectToExclude ? true : false;
             }).value();
 
             this.languages = _.chain(this.projects).pluck('language').uniq().value();
-            this.featuredProjects = _.chain(this.projects).sortBy('stargazers_count').take(this.FEATURED_PROJECTS_SIZE).value();
+            this.featuredProjects = _.chain(this.projects).sortBy('stargazers_count').take(constants.FeaturedProjectsLength).value();
         });
 
         this.sorter = new Sorter();

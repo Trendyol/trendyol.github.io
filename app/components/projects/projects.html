@@ -8,11 +8,12 @@
                 <div class="col-md-12 p0 mt10 " *ng-for="#project of filteredProjects">
                     <div class="row project-padding">
                         <div class="col-md-3">
-                            <img style="max-width: 100%" src="{{project.imgSrc || 'http://placehold.it/100x100'}}"/>
+                            <img style="max-width: 100%" src="{{project.owner.avatar_url || defaultProjectImage}}"/>
                         </div>
                         <div class="col-md-8">
                             <div class="col-md-12">
                                 <a href="{{project.html_url}}">
+                                    <i class="fa fa-code-fork" *ng-if="project.fork === true"></i>
                                     <span class="productTitle">{{project.full_name}}</span>
                                 </a>
                             </div>
@@ -33,13 +34,14 @@
                     <div class="row projectFooter">
                         <div class="col-md-12">
                             <div class="col-md-4">
-                                <span>Forks: {{project.forks_count}}</span>
-                                <span>Stars: {{project.stargazers_count}}</span>
+                                <span> <i class="fa fa-code-fork"></i> &nbsp; {{project.forks_count}}</span>
+                                <span><i class="fa fa-star"></i> &nbsp; {{project.stargazers_count}}</span>
                             </div>
                             <div class="col-md-2">
                             </div>
                             <div class="col-md-6 txr">
-                                <span class="createDate-span-effect">Create Date: {{project.created_at}}</span>
+                                <span class="createDate-span-effect"> <span class="glyphicon glyphicon-time"
+                                                                            aria-hidden="true"></span> Create Date: {{project.created_at}}</span>
                             </div>
                         </div>
                     </div>
