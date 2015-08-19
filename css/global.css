@@ -5,24 +5,24 @@ body {
     font-size: 13px;
 }
 
-.top-header{
+.top-header {
     height: 20px;
     background-color: #000000;
 }
 
-.w100{
+.w100 {
     width: 100% !important;
 }
 
-.tc{
+.tc {
     text-align: center !important;
 }
 
-.txr{
+.txr {
     text-align: right !important;
 }
 
-.fcw{
+.fcw {
     color: #FFF !important;
 }
 
@@ -36,19 +36,19 @@ body {
     line-height: 2px;
 }
 
-.mt10{
+.mt10 {
     margin-top: 10px !important;
 }
 
-.mt25{
+.mt25 {
     margin-top: 25px !important;
 }
 
-.p0{
+.p0 {
     padding: 0 !important;
 }
 
-.p15{
+.p15 {
     padding-left: 15px;
 }
 
@@ -56,9 +56,8 @@ body {
     background-color: #000;
 }
 
-
 .product-black-bottom-border span.productDescription {
-    color:#FFF;
+    color: #FFF;
     margin-left: 10px;
 }
 
@@ -73,7 +72,7 @@ body {
 
 .products-container {
     background-color: #FFF;
-    border: 1px solid#eee;
+    border: 1px solid #eee;
 }
 
 .menu {
@@ -84,7 +83,8 @@ body {
 .menu-container {
     padding: 7px;
 }
-.logo-leader{
+
+.logo-leader {
     margin-top: 10px;
 }
 
@@ -93,8 +93,7 @@ body {
     padding: 10px;
 }
 
-
-ul{
+ul {
     padding: 0px;
 }
 
@@ -102,7 +101,7 @@ li {
     list-style: none;
 }
 
-.col-md-12.p0.mt10{
+.col-md-12.p0.mt10 {
     border: 1px solid #eee;
     margin-bottom: 20px;
     transition-property: all;
@@ -115,7 +114,7 @@ li {
     -webkit-transition-timing-function: linear;
 }
 
-.col-md-12.p0.mt10:hover{
+.col-md-12.p0.mt10:hover {
 
     -moz-transition-property: all;
     -webkit-transition-property: all;
@@ -145,7 +144,7 @@ span.productLink {
 .footer {
     background-color: #FFF;
     margin-top: 20px;
-    border: 1px solid#eee;
+    border: 1px solid #eee;
     margin-bottom: 20px;
     padding: 0px;
     padding-top: 10px;
@@ -156,7 +155,7 @@ span.productLink {
     border-right: 1px solid #eee;
 }
 
-.col-md-12.p0.mt10:hover .projectFooter{
+.col-md-12.p0.mt10:hover .projectFooter {
     background-color: #f68428;
     transition-property: all;
     -moz-transition-property: all;
@@ -168,15 +167,15 @@ span.productLink {
     -webkit-transition-timing-function: linear;
 }
 
-.col-md-12.p0.mt10:hover .createDate-span-effect:after{
+.col-md-12.p0.mt10:hover .createDate-span-effect:after {
     content: 'Click';
 }
 
-.logo-mt{
+.logo-mt {
     margin-top: 17px;
 }
 
-.github-logo{
+.github-logo {
     max-height: 40px;
     margin-top: 19px;
     float: right;
@@ -209,21 +208,22 @@ span.productTitle {
     color: #FFF;
 }
 
-.project-padding{
+.project-padding {
     padding-top: 10px;
     padding-left: 10px;
     margin-bottom: 10px;
 }
 
-.project-info{
+.project-info {
     margin-top: 10px;
 }
-.project-info span{
+
+.project-info span {
     display: block;
     font-size: 11px;
 }
 
-.project-info-span span{
+.project-info-span span {
     display: inline-block !important;
     color: rgb(231, 125, 40);
 }
@@ -233,11 +233,11 @@ span.menu-section-title {
     font-weight: bold;
 }
 
-.featured-projects li{
-     margin-top: 10px;
-     font-size: 11px;
-     font-weight: bold;
- }
+.featured-projects li {
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
 
 input[type=checkbox], input[type=radio] {
 
@@ -248,5 +248,9 @@ input[type=checkbox], input[type=radio] {
 }
 
 li.section-menu-item {
+    margin-top: 5px;
+}
+
+.filter-textbox {
     margin-top: 5px;
 }

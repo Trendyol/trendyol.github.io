@@ -1,0 +1,25 @@
+{
+  "name": "Angular2-ES6-Starter",
+  "version": "1.0.0",
+  "description": "Many of the demos out there require quite a bit of setup work (running grunt/gulp tasks, npm/bower installation, etc.) which is great when you're wanting to write an app for production. A lot of upfront configuration work can be intimidating though when you simply want to start experimenting with a technology.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.31",
+    "systemjs": "^0.18.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-plumber": "^1.0.1",
+    "gulp-traceur": "^0.17.1",
+    "gulp-typescript": "^2.6.0",
+    "gulp-uglify": "^1.0.1",
+    "traceur": "0.0.90"
+  }
+}

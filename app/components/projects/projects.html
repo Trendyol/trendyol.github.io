@@ -1,0 +1,127 @@
+<div class="projects row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 p0 products-container">
+        <div class="col-md-8 p15">
+            <div class="product-container">
+
+                <!--PROJECTS LIST START-->
+                <div class="col-md-12 p0 mt10 " *ng-for="#project of filteredProjects">
+                    <div class="row project-padding">
+                        <div class="col-md-3">
+                            <img style="max-width: 100%" src="{{project.imgSrc}}"/>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-12">
+                                <a href="{{project.productLink}}">
+                                    <span class="productTitle">{{project.projectTitle}}</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="productDescription">{{project.productDesc}}</span>
+                            </div>
+                            <div class="col-md-12">
+
+                            </div>
+                            <div class="col-md-12 project-info">
+                                <span class="project-info-span ProgramingLanguage"><span>Programming Language :</span>  {{project.ProgramingLanguage}}</span>
+                                <span class="project-info-span  Last"><span>Last Push :</span> {{project.LastPush}}</span>
+                                <span class="project-info-span  Last"><span>Last Edit :</span> {{project.LastEdit}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row projectFooter">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <span>Forks: {{project.forkCount}}</span>
+                                <span>Stars: {{project.starCount}}</span>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-6 txr">
+                                <span class="createDate-span-effect">Create Date: {{project.CreateDate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--PROJECTS LIST END-->
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-right-container">
+                <div class="menu-right-container">
+                    <ul class="group-menu">
+                        <li class="group-menu-item">
+                            <!--Featured Projects START-->
+                            <span class="menu-section-title">Featured Projects</span>
+                            <ul class="section-menu featured-projects">
+
+                                <li class="section-menu-item" *ng-for="#featuredProject of featuredProjects">
+                                    {{featuredProject}}
+                                </li>
+
+                            </ul> <!--Featured Projects END-->
+                        </li>
+                        <hr>
+                        <li class="group-menu-item">
+                            <span class="menu-section-title">Programming language(s)</span>
+                            <ul class="section-menu">
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> C#
+                                </li>
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> Javascript
+                                </li>
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> Java
+                                </li>
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> C++
+                                </li>
+
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="group-menu-item">
+                            <span class="menu-section-title">Activity in the last</span>
+                            <ul class="section-menu">
+                                <li class="group-menu-item">
+                                    <ul class="section-menu">
+                                        <li class="section-menu-item">
+                                            <input class="fancy-checkbox" type="checkbox"/> Week
+                                        </li>
+                                        <li class="section-menu-item">
+                                            <input class="fancy-checkbox" type="checkbox"/> Month
+                                        </li>
+                                        <li class="section-menu-item">
+                                            <input class="fancy-checkbox" type="checkbox"/> Year
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="group-menu-item">
+                            <span class="menu-section-title">Created in the last</span>
+                            <ul class="section-menu">
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> Week
+                                </li>
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> Month
+                                </li>
+                                <li class="section-menu-item">
+                                    <input class="fancy-checkbox" type="checkbox"/> Year
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
