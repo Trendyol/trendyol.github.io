@@ -1,12 +1,12 @@
 import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
 import { ObservableWrapper } from 'angular2/src/facade/async';
-import { DataService } from 'app/services/dataService';
+import { GithubApi } from 'app/services/githubApi';
 import { Sorter } from 'app/utils/sorter';
 import { SortBy } from 'app/components/sortBy/sortBy';
 
 @Component({
     selector: 'projects',
-    hostInjector: [DataService]
+    hostInjector: [GithubApi]
 })
 @View({
     templateUrl: 'app/components/projects/projects.html',
@@ -15,16 +15,21 @@ import { SortBy } from 'app/components/sortBy/sortBy';
 
 export class Projects {
 
-    constructor(dataService:DataService) {
+    constructor(githubApi:GithubApi) {
         this.title = 'Projects';
         this.filterText = 'Filter Projects:';
+        this.FEATURED_PROJECTS_SIZE = 4
+        this.projects = this.filteredProjects = this.languages = this.featuredProjects = [];
 
-        this.projects = this.filteredProjects = [];
-
-        this.featuredProjects = ["Project 1", "Project 2", "Project 3"];
         //
-        ObservableWrapper.subscribe(dataService.getProjects(), res => {
-            this.projects = this.filteredProjects = res.json();
+        ObservableWrapper.subscribe(githubApi.getProjects(), res => {
+
+            this.projects = this.filteredProjects = _.chain(res.json()).filter(item=> {
+                return item.name !== "trendyol.github.io" ? true : false;
+            }).value();
+
+            this.languages = _.chain(this.projects).pluck('language').uniq().value();
+            this.featuredProjects = _.chain(this.projects).sortBy('stargazers_count').take(this.FEATURED_PROJECTS_SIZE).value();
         });
 
         this.sorter = new Sorter();
@@ -34,7 +39,7 @@ export class Projects {
     filterChanged(data) {
         if (data) {
             data = data.toUpperCase();
-            let props = ['projectTitle'];
+            let props = ['name'];
             let filtered = this.projects.filter(item => {
                 let match = false;
                 for (let prop of props) {

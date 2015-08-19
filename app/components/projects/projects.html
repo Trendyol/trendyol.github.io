@@ -8,24 +8,24 @@
                 <div class="col-md-12 p0 mt10 " *ng-for="#project of filteredProjects">
                     <div class="row project-padding">
                         <div class="col-md-3">
-                            <img style="max-width: 100%" src="{{project.imgSrc}}"/>
+                            <img style="max-width: 100%" src="{{project.imgSrc || 'http://placehold.it/100x100'}}"/>
                         </div>
                         <div class="col-md-8">
                             <div class="col-md-12">
-                                <a href="{{project.productLink}}">
-                                    <span class="productTitle">{{project.projectTitle}}</span>
+                                <a href="{{project.html_url}}">
+                                    <span class="productTitle">{{project.full_name}}</span>
                                 </a>
                             </div>
                             <div class="col-md-12">
-                                <span class="productDescription">{{project.productDesc}}</span>
+                                <span class="productDescription">{{project.description}}</span>
                             </div>
                             <div class="col-md-12">
 
                             </div>
                             <div class="col-md-12 project-info">
-                                <span class="project-info-span ProgramingLanguage"><span>Programming Language :</span>  {{project.ProgramingLanguage}}</span>
-                                <span class="project-info-span  Last"><span>Last Push :</span> {{project.LastPush}}</span>
-                                <span class="project-info-span  Last"><span>Last Edit :</span> {{project.LastEdit}}</span>
+                                <span class="project-info-span ProgramingLanguage"><span>Programming Language :</span>  {{project.language}}</span>
+                                <span class="project-info-span  Last"><span>Last Push :</span> {{project.pushed_at}}</span>
+                                <span class="project-info-span  Last"><span>Last Edit :</span> {{project.updated_at}}</span>
                             </div>
 
                         </div>
@@ -33,13 +33,13 @@
                     <div class="row projectFooter">
                         <div class="col-md-12">
                             <div class="col-md-4">
-                                <span>Forks: {{project.forkCount}}</span>
-                                <span>Stars: {{project.starCount}}</span>
+                                <span>Forks: {{project.forks_count}}</span>
+                                <span>Stars: {{project.stargazers_count}}</span>
                             </div>
                             <div class="col-md-2">
                             </div>
                             <div class="col-md-6 txr">
-                                <span class="createDate-span-effect">Create Date: {{project.CreateDate}}</span>
+                                <span class="createDate-span-effect">Create Date: {{project.created_at}}</span>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <ul class="section-menu featured-projects">
 
                                 <li class="section-menu-item" *ng-for="#featuredProject of featuredProjects">
-                                    {{featuredProject}}
+                                    <a href="{{featuredProject.html_url}}">{{featuredProject.name}}</a>
                                 </li>
 
                             </ul> <!--Featured Projects END-->
@@ -66,19 +66,9 @@
                         <li class="group-menu-item">
                             <span class="menu-section-title">Programming language(s)</span>
                             <ul class="section-menu">
-                                <li class="section-menu-item">
-                                    <input class="fancy-checkbox" type="checkbox"/> C#
+                                <li class="section-menu-item" *ng-for="#language of languages">
+                                    <input class="fancy-checkbox" type="checkbox"/> {{language}}
                                 </li>
-                                <li class="section-menu-item">
-                                    <input class="fancy-checkbox" type="checkbox"/> Javascript
-                                </li>
-                                <li class="section-menu-item">
-                                    <input class="fancy-checkbox" type="checkbox"/> Java
-                                </li>
-                                <li class="section-menu-item">
-                                    <input class="fancy-checkbox" type="checkbox"/> C++
-                                </li>
-
                             </ul>
                         </li>
                         <hr>
