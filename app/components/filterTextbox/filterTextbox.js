@@ -33,9 +33,9 @@ export class FilterTextbox {
         this.changed = new EventEmitter();
     }
 
-    filterChanged(event) {
+    filterChanged(event, prop) {
         event.preventDefault();
-        this.changed.next(this.model.filter); //Raise changed event
+        this.changed.next(this.model.filter, prop); //Raise changed event
     }
 
     onChange(changes) {

@@ -77,8 +77,10 @@
                         <li class="group-menu-item">
                             <span class="menu-section-title">Programming language(s)</span>
                             <ul class="section-menu">
-                                <li class="section-menu-item" *ng-for="#language of languages">
-                                    <input class="fancy-checkbox" type="checkbox"/> {{language}}
+                                <li class="section-menu-item" *ng-for="#languageItem of languages">
+                                    <input class="fancy-checkbox" type="checkbox" [checked]="languageItem.filtered"
+                                           (click)="checkBoxFilterChanged($event,languageItem)"/>
+                                    {{languageItem.value}}
                                 </li>
                             </ul>
                         </li>

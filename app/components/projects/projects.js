@@ -32,7 +32,12 @@ export class Projects {
                 return item.name !== constants.ProjectToExclude ? true : false;
             }).value();
 
-            this.languages = _.chain(this.projects).pluck('language').uniq().value();
+            this.languages = _.chain(this.projects).pluck('language').uniq().map(item=> {
+                return {
+                    value: item,
+                    filtered: false
+                }
+            }).value();
             this.featuredProjects = _.chain(this.projects).sortBy('stargazers_count').take(constants.FeaturedProjectsLength).value();
         });
 
@@ -43,19 +48,19 @@ export class Projects {
     filterChanged(data) {
         if (data) {
             data = data.toUpperCase();
-            let props = ['name'];
+            let props = ['name', 'language'];
             let filtered = this.projects.filter(item => {
                 let match = false;
                 for (let prop of props) {
-                    //console.log(item[prop] + ' ' + item[prop].toUpperCase().indexOf(data));
                     if (item[prop].toString().toUpperCase().indexOf(data) > -1) {
                         match = true;
                         break;
                     }
                 }
-                ;
+
                 return match;
             });
+
             this.filteredProjects = filtered;
         }
         else {
@@ -63,6 +68,14 @@ export class Projects {
         }
     }
 
+    checkBoxFilterChanged($event, prop) {
+        var isChecked = $event.target.checked; //TODO: prop.filtered doesn't fill with correct value
+        if (prop && isChecked === true) {
+            this.filterChanged(prop.value);
+        } else {
+            this.filterChanged();
+        }
+    }
 
     sort(prop) {
         this.sorter.sort(this.filteredProjects, prop);
