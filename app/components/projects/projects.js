@@ -4,6 +4,7 @@ import { GithubApi } from 'app/services/githubApi';
 import { Constants } from 'app/services/constants';
 import { Sorter } from 'app/utils/sorter';
 import { SortBy } from 'app/components/sortBy/sortBy';
+import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 
 @Component({
     selector: 'projects',
@@ -11,7 +12,7 @@ import { SortBy } from 'app/components/sortBy/sortBy';
 })
 @View({
     templateUrl: 'app/components/projects/projects.html',
-    directives: [NgFor, SortBy, NgIf]
+    directives: [NgFor, SortBy, NgIf, FilterTextbox]
 })
 
 export class Projects {

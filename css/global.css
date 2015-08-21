@@ -253,6 +253,7 @@ li.section-menu-item {
 
 .filter-textbox {
     margin-top: 5px;
+
 }
 
 /*SPINNER START*/
@@ -320,3 +321,12 @@ li.section-menu-item {
 }
 
 /*SPINNER END*/
+
+.searchBox{
+    position: absolute;
+    left:350px;
+    top: -80px;
+    display: block;
+    width: 350px;
+    height:35px;
+}

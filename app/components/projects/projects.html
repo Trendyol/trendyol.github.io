@@ -3,8 +3,11 @@
     <div class="col-md-10 p0 products-container">
         <div class="col-md-8 p15">
             <div class="product-container">
-                <!--<span>{{projects.length}} repositories</span>-->
 
+                <div class="searchBox">
+                    <filter-textbox [text]="filterText" class="navbar-right"
+                                    (changed)="filterChanged($event)"></filter-textbox>
+                </div>
                 <!--PROJECTS LIST START-->
                 <div class="col-md-12 p0 mt10 " *ng-for="#project of filteredProjects">
                     <div class="row project-padding">
@@ -49,6 +52,11 @@
                 </div><!--PROJECTS LIST END-->
 
             </div>
+
+            <div class="alert alert-warning text-center" role="alert" *ng-if="filteredProjects.length ===0">
+                <strong>No results found.!</strong>
+            </div>
+
         </div>
         <div class="col-md-4">
             <div class="product-right-container">

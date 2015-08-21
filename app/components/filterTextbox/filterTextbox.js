@@ -3,29 +3,34 @@ import { formDirectives } from 'angular2/forms';
 import { EventEmitter } from 'angular2/src/facade/async';
 
 @Component({
-  selector: 'filter-textbox',
-  events: ['changed'],
-  properties: ['text'],
-  lifecycle: [onChange]
+    selector: 'filter-textbox',
+    events: ['changed'],
+    properties: ['text'],
+    lifecycle: [onChange]
 })
 @View({
-  template: `
+    template: `
     <form>
-         Filter:
-         <input type="text" 
-                [(ng-model)]="model.filter" 
-                (keyup)="filterChanged($event)"  />
+
+  <div class="input-group" style="margin-left: -32px;">
+                <input type="text" class="form-control"  [(ng-model)]="model.filter"
+                 (keyup)="filterChanged($event)" placeholder="Search" name="srch-term" id="srch-term">
+
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
     </form>
   `,
-  directives: [formDirectives]
+    directives: [formDirectives]
 })
 export class FilterTextbox {
 
     constructor() {
-      this.model = {
-        filter: null
-      };
-      this.changed = new EventEmitter();
+        this.model = {
+            filter: null
+        };
+        this.changed = new EventEmitter();
     }
 
     filterChanged(event) {
@@ -34,7 +39,7 @@ export class FilterTextbox {
     }
 
     onChange(changes) {
-      //alert(changes);
+        //alert(changes);
     }
 
 }
