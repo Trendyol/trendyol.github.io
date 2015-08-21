@@ -29,7 +29,7 @@ export class Projects {
         ObservableWrapper.subscribe(githubApi.getProjects(), res => {
 
             this.projects = this.filteredProjects = _.chain(res.json()).filter(item=> {
-                return item.name !== constants.ProjectToExclude ? true : false;
+                return item.name !== constants.ProjectToExclude;
             }).value();
 
             this.languages = _.chain(this.projects).pluck('language').uniq().map(item=> {
