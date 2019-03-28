@@ -1,1 +1,0 @@
-# trendyol-tech-github
