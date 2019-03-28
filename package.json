@@ -1,25 +1,27 @@
 {
-  "name": "Angular2-ES6-Starter",
-  "version": "1.0.0",
-  "description": "Many of the demos out there require quite a bit of setup work (running grunt/gulp tasks, npm/bower installation, etc.) which is great when you're wanting to write an app for production. A lot of upfront configuration work can be intimidating though when you simply want to start experimenting with a technology.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "angular2": "^2.0.0-alpha.31",
-    "systemjs": "^0.18.1"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-plumber": "^1.0.1",
-    "gulp-traceur": "^0.17.1",
-    "gulp-typescript": "^2.6.0",
-    "gulp-uglify": "^1.0.1",
-    "traceur": "0.0.90"
-  }
+    "name": "trendyol-tech-github",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./build/index.html",
+    "scripts": {
+        "dev": "npx hrs -p 3000 ./build & npm run dev:css & npm run dev:js",
+        "build": "npm run build:css && npm run build:js",
+        "dev:css": "NODE_ENV=development npx postcss ./src/styles/dev.css -o ./build/styles/main.css -c postcss.config.js -w",
+        "build:css": "NODE_ENV=production npx postcss ./src/styles/dev.css -o ./build/styles/main.css -c postcss.config.js",
+        "dev:js": "npx babel ./src/scripts/dev.js --watch --out-file ./build/scripts/main.js --source-maps",
+        "build:js": "npx babel ./src/scripts/dev.js --out-file ./build/scripts/main.js --source-maps",
+        "lint": "npx eslint"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "autoprefixer": "^9.5.0",
+        "babel-preset-minify": "^0.5.0",
+        "cssnano": "^4.1.10",
+        "eslint": "^5.3.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "postcss-cli": "^6.1.2",
+        "simple-hot-reload-server": "^1.2.0"
+    }
 }
