@@ -1,0 +1,28 @@
+{
+    "name": "trendyol-tech-github",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./build/index.html",
+    "scripts": {
+        "dev": "npx hrs -p 3000 ./build & npm run dev:css & npm run dev:js",
+        "build": "npm run build:css && npm run build:js",
+        "deploy": "npm run build && git subtree push --prefix build origin gh-pages",
+        "dev:css": "NODE_ENV=development npx postcss ./src/styles/dev.css -o ./build/styles/main.css -c postcss.config.js -w",
+        "build:css": "NODE_ENV=production npx postcss ./src/styles/dev.css -o ./build/styles/main.css -c postcss.config.js",
+        "dev:js": "npx babel ./src/scripts/dev.js --watch --out-file ./build/scripts/main.js --source-maps",
+        "build:js": "npx babel ./src/scripts/dev.js --out-file ./build/scripts/main.js --source-maps",
+        "lint": "npx eslint"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "autoprefixer": "^9.5.0",
+        "babel-preset-minify": "^0.5.0",
+        "cssnano": "^4.1.10",
+        "eslint": "^5.3.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "postcss-cli": "^6.1.2",
+        "simple-hot-reload-server": "^1.2.0"
+    }
+}
