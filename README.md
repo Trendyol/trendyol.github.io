@@ -1,1 +1,1 @@
-# Trendyol Tech
+# trendyol-tech-github
