@@ -4,7 +4,7 @@
     "description": "",
     "main": "./build/index.html",
     "scripts": {
-        "dev": "npx hrs -p 3000 ./build & npm run dev:css & npm run dev:js",
+        "dev": "npx hrs -p 3000 ./build & npm run dev:css & npm run dev:js ",
         "build": "npm run build:css && npm run build:js",
         "deploy": "npm run build && git subtree push --prefix build origin master",
         "dev:css": "NODE_ENV=development npx postcss ./src/styles/dev.css -o ./build/styles/main.css -c postcss.config.js -w",
