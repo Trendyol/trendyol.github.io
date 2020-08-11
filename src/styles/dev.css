@@ -225,22 +225,52 @@ a {
     height: 19px;
     width: auto;
 
-    filter: grayscale(1);
+    opacity: 0.5;
 
     margin-right: 20px;
     margin-top: 5px;
+
+    transition: opacity .5s linear;
+}
+
+.hero__content__logo:hover {
+    opacity: 1;
 }
 
 .hero__content__logo-java {
+    margin-bottom: -1px;
     height: 24px;
-    filter: grayscale(1) brightness(2.5)
+    filter: grayscale(0.5) brightness(1)
 }
 .hero__content__logo-kotlin {
     height: 18px;
-    filter: grayscale(1) brightness(1.4)
+    height: 21px;
+    filter: grayscale(0.5) brightness(1.4)
 }
 .hero__content__logo-swift {
     margin-bottom: -1px;
+    height: 22px;
+    filter: grayscale(0.5) brightness(1.4)
+}
+.hero__content__logo-python {
+    margin-bottom: -1px;
+    height: 21px;
+    filter: grayscale(0.5) brightness(1)
+}
+.hero__content__logo-javascript {
+    margin-bottom: -1px;
+    height: 21px;
+    filter: grayscale(0.5) brightness(1)
+}
+.hero__content__logo-dotnet {
+    margin-bottom: -1px;
+    height: 22px;
+    filter: grayscale(0.5) brightness(1)
+}
+.hero__content__logo-go {
+    margin-bottom: -1px;
+    height: 22px;
+    filter: grayscale(0.5) brightness(1)
 }
 
 @media screen and (max-width: 650px) {
@@ -414,6 +444,9 @@ a {
 }
 .open-source__language--Swift {
     background: #ffac45;
+}
+.open-source__language--Go {
+    background: #2fffee;
 }
 
 .open-source__show-more {
