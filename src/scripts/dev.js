@@ -4,7 +4,7 @@
 }());
 
 function Repos() {
-  const trendyolGithubEndpoint = 'https://api.github.com/users/Trendyol';
+  const trendyolGithubEndpoint = 'https://api.github.com/search/repositories?q=user:Trendyol';
   const injectionPointForRepoCards = document.querySelector('.open-source__cards');
   const getMoreReposButton = document.querySelector('.open-source__show-more');
   getMoreReposButton.addEventListener('click', function getMoreRepos(e) {
@@ -29,7 +29,7 @@ function Repos() {
   function getRepos() {
     showLoadingSpinnerInsideButton();
     getRepoInfoFromGithub().then((repos) => {
-      repos.forEach((repo) => {
+      repos.items.forEach((repo) => {
         const repoTemplate = getRepoTemplate(repo);
         const repoTemplateToNode = document.createRange().createContextualFragment(repoTemplate);
         injectNodeToDOM(repoTemplateToNode);
@@ -57,7 +57,7 @@ function Repos() {
 
   function getRepoInfoFromGithub() {
     return fetch(
-      `${trendyolGithubEndpoint}/repos?page=${requestPage}&per_page=${requestSize}&sort=upload&type=owner`,
+      `${trendyolGithubEndpoint}&page=${requestPage}&per_page=${requestSize}`,
     )
       .then(res => res.json())
       .then(data => data);
