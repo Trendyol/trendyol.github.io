@@ -1,0 +1,42 @@
+# When a pull request merged on develop branch, 
+# this workflow transfer the files in the build folder to master branch
+name: Merge to master when pull request
+
+on: 
+  pull_request:
+    branches: [develop]
+    types: [closed]
+
+permissions: 
+  contents: write
+
+jobs:
+  merge-master-back-to-dev:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: npm-${{ hashFiles('package-lock.json') }}
+        restore-keys: npm-
+    - name: Install Dependencies
+      run: npm install
+    - name: Set Git config
+      run: |
+          git config user.name "actions"
+          git config user.email "github-actions@github.com"
+
+    - name: Push
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: master # The branch name where you want to push the assets
+        FOLDER: build # The directory where your assets are generated
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+        MESSAGE: "Build: ({sha}) {msg}" # The commit message
+ 
