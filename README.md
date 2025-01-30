@@ -1,3 +1,5 @@
+
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Trendyol/trendyol.github.io/badge)](https://scorecard.dev/viewer/?uri=github.com/Trendyol/trendyol.github.io)
 # Trendyol <3 Open Source
 
 Trendyol tech relies on OSS and we are trying to contribute internally developed libraries back to the community. Here are the source files for the landing page of Trendyol Tech.
